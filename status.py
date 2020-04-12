@@ -94,8 +94,9 @@ class StatusBar:
         with open("/sys/class/power_supply/BAT0/status", "r") as f:
             status = f.read()
         anim_index = capacity // 10
+        symbols = f"{batterySymbols[anim_index]}"
         if "Discharging" not in status:
-            symbols = f"{batterySymbols[anim_index]}"
+            symbols = f"{symbols}"
         if capacity == 100:
             capacity = "FULL"
         else:
